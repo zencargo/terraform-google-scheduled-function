@@ -59,8 +59,7 @@ resource "random_id" "suffix" {
 }
 
 module "main" {
-  source  = "terraform-google-modules/event-function/google"
-  version = "~> 3.0"
+  source = "github.com/zencargo/terraform-google-event-function?depth=0&ref=41197f07a3cfc9a485abaac81381b24f7625f5db"
 
   entry_point = var.function_entry_point
   event_trigger = {
@@ -86,6 +85,7 @@ module "main" {
   event_trigger_failure_policy_retry = var.function_event_trigger_failure_policy_retry
   labels                             = var.function_labels
   service_account_email              = var.function_service_account_email
+  build_service_account              = var.build_service_account
   timeout_s                          = var.function_timeout_s
   max_instances                      = var.function_max_instances
   ingress_settings                   = var.ingress_settings
