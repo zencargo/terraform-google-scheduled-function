@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+variable "build_service_account" {
+  type        = string
+  default     = null
+  description = " The self-provided service account to use to build the function. The format of this value is projects/{project}/serviceAccounts/{serviceAccountEmail}"
+}
+
 variable "project_id" {
   type        = string
   description = "The ID of the project where the resources will be created"
